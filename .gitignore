@@ -1,0 +1,35 @@
+# Compiled class files
+target/
+
+# Maven-specific files
+mvnw
+.mvn/
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Dependencies (if using Maven)
+.classpath
+.project
+.settings/
+
+# Eclipse-specific files (if using Eclipse)
+.metadata/
+bin/
+tmp/
+.classpath
+.project
+.settings/
+.loadpath
+.recommenders
+
+# macOS-specific files
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+Desktop.ini

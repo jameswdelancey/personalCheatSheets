@@ -1,0 +1,83 @@
+<!-- <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.jameswdelancey.javaCheatSheet</groupId>
+  <artifactId>JavaCheatSheet</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>JavaCheatSheet</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project> -->
+    <!-- Updated the XML schema location to use the HTTPS URL.
+
+    Set the Java source and target versions to 20 (you can change this to your desired Java version).
+
+    Updated JUnit to JUnit 5 dependencies for testing, which is the latest version at the time of this writing.
+
+    Added <build> configuration for the Maven Compiler Plugin and Maven JAR Plugin. These plugins provide more control over the build process and allow you to specify the Java version, main class (if applicable), and other build-related settings.
+
+    Optionally, you can uncomment the <archive> section inside the Maven JAR Plugin configuration and specify the main class if your JAR has a main class entry point. -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.jameswdelancey.javaCheatSheet</groupId>
+    <artifactId>JavaCheatSheet</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>JavaCheatSheet</name>
+
+    <properties>
+        <!-- Define Java version -->
+        <maven.compiler.source>20</maven.compiler.source>
+        <maven.compiler.target>20</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Compiler Plugin Configuration -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <!-- JAR Packaging Configuration -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <!-- Define the main class for your JAR if applicable -->
+                    <!-- <archive>
+                        <manifest>
+                            <mainClass>com.example.MainClass</mainClass>
+                        </manifest>
+                    </archive> -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

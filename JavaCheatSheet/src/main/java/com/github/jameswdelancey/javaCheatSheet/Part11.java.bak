@@ -1,0 +1,78 @@
+package com.github.jameswdelancey.javaCheatSheet;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+// import java.nio.file.FileSystems;
+// import java.nio.file.Path;
+
+public class Part11 {
+    public static void main(String[] args) {
+        String path = System.getenv("PATH");
+        System.out.println("PATH: " + path);
+
+        // Split paths by the system path separator into paths
+        String[] pathArray = path.split(";");
+        for (String folder : pathArray) {
+            System.out.println("Folder in PATH: " + folder);
+        }
+    }
+}
+
+class Part11_2 {
+    public static void main(String[] args) {
+        // Print args to the console
+        for (String arg : args) {
+            System.out.println("Arg: " + arg);
+        }
+    }
+}
+
+class Part11_3 {
+    public static void main(String[] args) {
+        // Print args to the console using stdout.write and a string formatter
+        for (String arg : args) {
+            System.out.write(String.format("Arg: %s\n", arg).getBytes(), 0, String.format("Arg: %s\n", arg).length());
+        }
+    }
+}
+
+class Part11_4 {
+    public static void main(String[] args) {
+        // Read one line from stdin and print it back to stdout
+        byte[] buffer = new byte[1024];
+        int bytesRead = 0;
+        try {
+            bytesRead = System.in.read(buffer, 0, 1024);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.printf("You typed: %s (%d bytes)\n", new String(buffer, 0, bytesRead), bytesRead);
+    }
+}
+
+class Part11_5 {
+    public static void main(String[] args) {
+        try (FileReader fileReader = new FileReader(
+                "src/main/java/com/github/jameswdelancey/javaCheatSheet/Part11.java");
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                FileWriter fileWriter = new FileWriter(
+                        "src/main/java/com/github/jameswdelancey/javaCheatSheet/Part11.java.bak");
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);) {
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                bufferedWriter.write(line);
+                bufferedWriter.newLine();
+            }
+
+            System.out.println("File copied successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
